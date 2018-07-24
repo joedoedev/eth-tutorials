@@ -1,0 +1,22 @@
+{
+  "name": "eth-tutorials",
+  "version": "1.0.0",
+  "description": "Solidity smart ct and nodejs code",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "author": "Joe",
+  "license": "ISC",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "https://github.com/joedoedev/eth-tutorials#readme",
+  "dependencies": {
+    "solc": "^0.4.24"
+  }
+}
