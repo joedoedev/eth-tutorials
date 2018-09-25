@@ -17,10 +17,10 @@ beforeEach( async ()=>{
 	accounts = await web3.eth.getAccounts();
 
 	// Deploy
-	inbox = await new web3.eth.Contract(abi)
+	inbox = await new web3.eth
+			.Contract(abi /*, address*/)
 			.deploy({ data : data, arguments : ['ABC'] })
 			.send ( { from : me, gas : '500000' });
-	// console.log( bytecode )
 
 } );
 
