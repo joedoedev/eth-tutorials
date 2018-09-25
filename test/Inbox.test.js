@@ -8,6 +8,7 @@ let abi = JSON.parse(interface); let data = "0x"+bytecode;
 
 let me, accounts, inbox;
 const INITIAL_STRING = "ABC";
+const NEW_STRING = "XYZ";
 
 beforeEach( async ()=>{
 
@@ -39,5 +40,10 @@ describe("Inbox\n", () => {
 	it("has a default message after deploy", async ()=>{
 		const msg = await inbox.methods.message().call();
 		assert.equal(msg, INITIAL_STRING, "The initial str is not right!");
+	});
+	it("cat change the default message to a new one after deploy", async ()=>{
+		await inbox.methods.setMessage(NEW_STRING).send({from:me});
+		const msg = await inbox.methods.message().call();
+		assert.equal(msg, NEW_STRING, "The new string is not right!");
 	});
 });
