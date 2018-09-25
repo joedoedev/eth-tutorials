@@ -29,6 +29,10 @@ describe("Inbox\n", () => {
 		console.log("eth_coinbase", me, "\n");
 	});
 	it("deploys the smart contract", ()=>{
-		console.log(inbox);
+		assert.ok(inbox);
+	});
+	it("deploys the contract with address", ()=>{
+		assert.ok(inbox.options.address);
+		console.log("\ncontract_address", inbox.options.address);
 	});
 });
