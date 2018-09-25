@@ -31,3 +31,4 @@ WORKDIR /root/myprj/
 # [[ $(docker ps -a|grep udemy) ]] && docker rm udemy
 # docker run -it -v $PWD/myprj/:/root/myprj/ -h udemy --name udemy ubuntu-udemy
 # if [[ $(docker ps -a | grep udemy) ]]; then docker rm udemy; fi && docker run -it -v $PWD/myprj/:/root/myprj/ -h udemy --name udemy ubuntu-udemy
+# cd eth-tutorials && npm install
