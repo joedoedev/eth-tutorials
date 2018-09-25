@@ -7,6 +7,7 @@ const { interface, bytecode } = require('../compile');
 let abi = JSON.parse(interface); let data = "0x"+bytecode;
 
 let me, accounts, inbox;
+const INITIAL_STRING = "ABC";
 
 beforeEach( async ()=>{
 
@@ -19,7 +20,7 @@ beforeEach( async ()=>{
 	// Deploy
 	inbox = await new web3.eth
 			.Contract(abi /*, address*/)
-			.deploy({ data : data, arguments : ['ABC'] })
+			.deploy({ data : data, arguments : [INITIAL_STRING] })
 			.send ( { from : me, gas : '500000' });
 
 } );
@@ -34,5 +35,9 @@ describe("Inbox\n", () => {
 	it("deploys the contract with address", ()=>{
 		assert.ok(inbox.options.address);
 		console.log("\ncontract_address", inbox.options.address);
+	});
+	it("has a default message after deploy", async ()=>{
+		const msg = await inbox.methods.message().call();
+		assert.equal(msg, INITIAL_STRING, "The initial str is not right!");
 	});
 });
